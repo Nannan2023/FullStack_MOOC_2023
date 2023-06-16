@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
+    user->>browser: create a new note and save
+
+    activate server
+    browser->>server: Post https://studies.cs.helsinki.fi/exampleapp/notes
+    Note right of server: server writes the new note to the database
+        
+    
+    server-->>browser: The HTTP 201 Created success status response code
+    deactivate server
+
+   
